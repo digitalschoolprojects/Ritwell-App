@@ -12,6 +12,7 @@ use App\Http\Controllers\API\SpecialEventsController;
 use App\Http\Controllers\API\ClientFolderController;
 use App\Http\Controllers\API\HomeworkFolderController;
 use App\Http\Controllers\API\ImageController;
+use App\Http\Controllers\API\ReservationController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group which    
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
@@ -31,6 +32,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('allHomework/{email}', [HomeworkFolderController::class, 'index']);
     Route::get('allRecipes', [RecipeController::class, 'index']);
     Route::get('allEvents', [SpecialEventsController::class, 'index']);
+    Route::get('allReservations', [ReservationController::class, 'index']);
+
     //Nutrition Plan Show Based on Time of Day
     Route::get('breakfastNutrition', [NutritionController::class, 'breakfastIndex']);
     Route::get('lunchNutrition', [NutritionController::class, 'lunchIndex']);
@@ -120,6 +123,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Display All Images
     Route::get('/images', [ImageController::class, 'index']);
+
+    Route::post('/reservation', [ReservationController::class, 'store']);
+    Route::get('/reservation/{id}', [ReservationController::class, 'show']);
+    Route::put('/updateReservation/{id}', [ReservationController::class, 'update']);
+    Route::delete('/removeReservation/{id}', [ReservationController::class, 'destroy']);
 });
 
 Route::post('register', [RegisterController::class, 'register']);

@@ -12,6 +12,17 @@
 
 namespace App\Models{
 /**
+ * App\Models\Image
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Image query()
+ */
+	class Image extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Metrics
  *
  * @property int $id
@@ -145,6 +156,31 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereUpdatedAt($value)
  */
 	class Recipe extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Reservations
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $trainer_id
+ * @property string $start_time
+ * @property string $end_time
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereStartTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereTrainerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservations whereUserId($value)
+ */
+	class Reservations extends \Eloquent {}
 }
 
 namespace App\Models{
