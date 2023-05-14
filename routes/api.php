@@ -118,7 +118,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Log out
     Route::post('/logout', [RegisterController::class, 'logout']);
-
+  
+    //Test Comment
 
     //Homework
     Route::post('/addHomework/{email}', [HomeworkFolderController::class, 'store']);
