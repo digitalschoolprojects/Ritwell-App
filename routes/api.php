@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group which    
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
@@ -33,6 +33,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('allHomework/{email}', [HomeworkFolderController::class, 'index']);
     Route::get('allRecipes', [RecipeController::class, 'index']);
     Route::get('allEvents', [SpecialEventsController::class, 'index']);
+    Route::get('allReservations', [ReservationController::class, 'index']);
+
     //Nutrition Plan Show Based on Time of Day
     Route::get('breakfastNutrition', [NutritionController::class, 'breakfastIndex']);
     Route::get('lunchNutrition', [NutritionController::class, 'lunchIndex']);
@@ -133,10 +135,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Display All Images
     Route::get('/images', [ImageController::class, 'index']);
-    Route::put('/homework/complete/{id}', [HomeworkFolderController::class, 'markCompleted']);
-
-    //Update Profile Picture
-    Route::put('updateProfilePicture/{id}', [UserController::class, 'updateProfilePicture']);
 });
 
 Route::post('register', [RegisterController::class, 'register']);
